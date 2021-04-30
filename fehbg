@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-scale '/home/elliott/pix/wall/milky2.jpg' 
