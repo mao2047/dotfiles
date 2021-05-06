@@ -23,11 +23,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "wiki
     Plug 'vimwiki/vimwiki'
     "Julia support
-    Plug 'JuliaEditorSupport/julia-vim'
+    "Plug 'JuliaEditorSupport/julia-vim'
     "python auto-identation
     Plug 'vim-scripts/indentpython.vim'
     "python auto-complete
     "Plug 'Valloric/YouCompleteMe'
     "syntax checking
     Plug 'vim-syntastic/syntastic'
+      "Auto Pop-up menu
+    Plug 'skywind3000/vim-auto-popmenu'
+    Plug 'skywind3000/vim-dict'
     call plug#end()
