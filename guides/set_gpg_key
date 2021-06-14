@@ -1,0 +1,30 @@
+Como generar una llave GPG para github
+
+1. Genera una llave gpg, eligiendo "RSA and RSA", 4096 y fecha de expiración (never). El correo ingresado debe ser el mismo que está registrado en github
+
+gpg --full-generate-key
+
+2. imprime la llave y copia el id del fingerprint generado (el id es un numero en la primera fila "sec", luego de 4096R/ y de forma 3AA5C34371567BD2 por ejemplo)
+
+gpg --list-secret-keys --keyid-format LONG
+
+3. exporta la llave en su formato ASCII 
+
+gpg --armor --export id
+
+ejemplo:
+gpg --armor --export 3AA5C34371567BD2
+
+#se puede copiar a un archivo tambien
+#gpg --armor --export 3AA5C34371567BD2 > gpg_key
+
+4. añade esa llave en formato ASCII en github.com > settings > keys
+
+5. añadir verificación para git
+git config --global commit.gpgsign true
+git config --global user.signingkey id
+#git config --global user.signingkey 3AA5C34371567BD2
+
+5. agregar la opción -S para firmar cualquier commit
+git commit -S -m your commit "firmado con GPG"
+

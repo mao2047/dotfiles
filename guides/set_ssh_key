@@ -1,0 +1,23 @@
+Genererar una llave SSH para usar en github
+
+1. genera una nueva llave ssh
+# deberás generar una por equipo
+ssh-keygen -t rsa -C "tu_email@example.com"
+
+2. copia el contenido de tu id_rsa.pub y pegalo en 
+github.com > settings > keys (new ssh key)
+# por lo general id_sra.pub se genera en ~/.ssh en Linux & unix
+
+3. prueba la llave SSH
+$ ssh -T git@github.com
+Hi developius! You've successfully authenticated, but GitHub does not provide shell access.
+
+4. cambia la ruta de tu repositiorio 
+git remote set-url origin git@github.com:usuario/tu-repositorio.git
+#esto deberá hacerse por cada repositorio
+
+5. ahora puedes hacer git push sin usuario ni contraseña
+#tampoco es necesario colocar origin master
+$ git push
+#tambien puedes clonar repositorios por esa misma via
+git clone git@github.com:username/your-repository.git
